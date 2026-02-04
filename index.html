@@ -1,0 +1,3651 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candor Solutions | Professional Consulting Agency</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* =====================================================
+       MODAL STYLES
+    ===================================================== */
+    .modal {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      animation: slideInRight 0.5s ease-out;
+    }
+
+    .modal-content {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-left: 3px solid var(--secondary);
+      border-radius: 0;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+      padding: 30px;
+      overflow-y: auto;
+      animation: modalContentSlide 0.6s ease-out 0.2s both;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: var(--primary);
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .close:hover {
+      color: var(--secondary);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    @keyframes slideInRight {
+      from {
+        right: -400px;
+        opacity: 0;
+      }
+      to {
+        right: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes modalContentSlide {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .modal h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--secondary);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .modal p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 25px;
+      animation: fadeInUp 0.8s ease 0.1s both;
+    }
+
+    .modal h3 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin: 30px 0 15px 0;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .modal ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+
+    .modal li:last-child {
+      border-bottom: none;
+    }
+
+    .modal li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .modal .btn {
+      width: 100%;
+      margin-top: 30px;
+      background: var(--secondary);
+      color: white;
+      border: 2px solid var(--secondary);
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .modal .btn:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(189, 112, 83, 0.3);
+    }
+
+    .modal-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+      animation: fadeInUp 0.8s ease 0.5s both;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      border: 2px solid #e5e7eb;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-image:hover {
+      border-color: var(--secondary);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(189, 112, 83, 0.2);
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .modal-image:hover img {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .modal {
+        width: 100%;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        right: 0;
+      }
+
+      .modal-content {
+        position: relative;
+        height: auto;
+        max-height: 70vh;
+        border-left: none;
+        border-top: 3px solid var(--secondary);
+      }
+
+      .modal-images {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =====================================================
+       RESET & VARIABLES
+    ===================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    :root {
+      --primary: #2b354b;
+      --primary-dark: #3f414b;
+      --secondary: #de9a9a;
+      --secondary-light: #8d7777;
+      --dark: #151c2d;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --border: #e5e7eb;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+http://127.0.0.1:3000/index.html?serverWindowId=c17e866c-066e-4d90-a347-3c2c5fe7a640#contact
+    /* =====================================================
+       BASE STYLES
+    ===================================================== */
+    body {
+      line-height: 1.7;
+      color: var(--dark);
+      background: #f9f9f9;
+      overflow-x: hidden;
+    }
+
+    a { 
+      text-decoration: none; 
+      color: inherit; 
+      transition: color 0.3s ease;
+    }
+    
+    ul { 
+      list-style: none; 
+    }
+
+    .container {
+      width: 90%;
+      /* max-width: 1200px; */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: var(--secondary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 25px auto 0;
+    }
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+    .btn {
+      display: inline-block;
+      padding: 15px 38px;
+      background: var(--secondary);
+      color: #000000;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--secondary);
+      cursor: pointer;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(112, 80, 69, 0.3);
+      background: var(--secondary-light);
+    }
+
+    .btn-outline {
+      background: rgb(163, 161, 161);
+      color: var(--primary);
+      border-color: white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: white;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-ghost:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* =====================================================
+       HEADER & NAVIGATION
+    ===================================================== */
+    .dark-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11, 18, 32, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .dark-header.transparent {
+      background: rgba(11, 18, 32, 0.699);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100% !important;
+      height: 70px;
+    }
+
+    /* Brand / Logo */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex: 0 0 auto;
+      margin-left: 30px;
+    }
+
+    .cs-logo {
+      width: 42px;
+      height: 42px;
+      background: var(--gradient-secondary);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(106, 83, 75, 0.35);
+    }
+
+    .brand-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text span {
+      color: var(--secondary);
+    }
+
+    /* Navigation Links */
+    .main-nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      position: relative;
+      height: 75px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #d1d5db;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 5px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffffff;
+    }
+
+    .nav-links > li > a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links > li > a:hover::after {
+      width: 100%;
+    }
+
+    .chevron {
+      font-size: 0.75rem;
+      margin-left: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover .chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      position: absolute;
+      top: 75px;
+      left: -15px;
+      background: #1a2233;
+      min-width: 260px;
+      border-top: 2px solid var(--secondary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      list-style: none;
+      padding: 10px 0;
+      border-radius: 0 0 6px 6px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu li {
+      height: auto;
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #d1d5db;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.9rem;
+    }
+
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--secondary);
+      padding-left: 25px;
+    }
+
+    .dropdown-menu a::after {
+      display: none;
+    }
+
+    /* Contact Info in Nav */
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 0 0 auto;
+    }
+
+    .nav-info {
+      font-size: 0.85rem;
+      color: #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-info:hover {
+      color: #ffffff;
+    }
+
+    .nav-info i {
+      color: var(--secondary);
+    }
+
+    .nav-info a {
+      color: #d1d5db;
+      font-weight: 500;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Heartbeat Animation for WhatsApp Icon */
+    .heartbeat {
+      animation: heartbeat 2s ease-in-out infinite;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.4));
+    }
+
+    .heartbeat:hover {
+      animation-duration: 0.8s;
+      filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.6));
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.4));
+      }
+      25% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.6));
+      }
+      50% {
+        transform: scale(1.25);
+        filter: drop-shadow(0 0 16px rgba(37, 211, 102, 0.8));
+      }
+      75% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.6));
+      }
+    }
+
+
+
+    /* =====================================================
+       ENHANCED HERO SECTION
+    ===================================================== */
+    .hero {
+      min-height: 100vh;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-bg.active {
+      opacity: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(8,26,43,0.4), rgba(8,26,43,0.35));
+      z-index: 1;
+    }
+
+    .hero-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(189, 112, 83, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(76, 88, 100, 0.1) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 2.0rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 820px;
+      margin: 0 auto 35px;
+      opacity: 0.9;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--secondary);
+      display: block;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #d1d5db;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .bg-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .bg-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .bg-dot.active {
+      background: var(--secondary);
+      transform: scale(1.2);
+    }
+
+    .bg-dot:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* =====================================================
+       ADVISORY CONSULTING SECTION
+    ===================================================== */
+    .advisory-section {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .advisory-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(189, 112, 83, 0.03) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(76, 88, 100, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .advisory-header {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .advisory-header h2 {
+      font-size: 3.2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .advisory-header p {
+      font-size: 1.3rem;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .advisory-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .advisory-phase {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .advisory-phase::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(189, 112, 83, 0.05), transparent);
+      transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .advisory-phase:hover::before {
+      left: 100%;
+    }
+
+    .advisory-phase:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 40px 100px rgba(189, 112, 83, 0.15);
+      border-color: rgba(189, 112, 83, 0.2);
+    }
+
+    .phase-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      font-size: 2.5rem;
+      color: white;
+      box-shadow: 0 15px 40px rgba(189, 112, 83, 0.3);
+      position: relative;
+      z-index: 3;
+    }
+
+    .advisory-phase h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .advisory-phase p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .phase-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .phase-features li {
+      color: var(--dark);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .phase-features li i {
+      color: var(--secondary);
+      font-size: 0.8rem;
+    }
+
+    .flow-arrow {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 15px 40px rgba(76, 88, 100, 0.2);
+      position: relative;
+      z-index: 3;
+      animation: pulseArrow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseArrow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .advisory-focus-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .focus-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border-left: 4px solid var(--secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(189, 112, 83, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(30px, -30px);
+    }
+
+    .focus-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(189, 112, 83, 0.12);
+    }
+
+    .focus-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(189, 112, 83, 0.1), rgba(189, 112, 83, 0.05));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    .focus-card:hover .focus-icon {
+      background: var(--secondary);
+      color: white;
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .focus-card h4 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .focus-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .advisory-cta {
+      text-align: center;
+      margin-top: 80px;
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .advisory-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.02)"/><circle cx="10" cy="50" r="0.5" fill="rgba(255,255,255,0.02)"/><circle cx="90" cy="50" r="0.5" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.1;
+    }
+
+    .advisory-cta h3 {
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .advisory-cta p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+    }
+
+    .advisory-cta .btn {
+      background: white;
+      color: var(--primary);
+      border: 2px solid white;
+      padding: 18px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .advisory-cta .btn:hover {
+      background: var(--secondary);
+      color: white;
+      border-color: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(189, 112, 83, 0.3);
+    }
+
+    /* =====================================================
+       ENHANCED SERVICES SECTION
+    ===================================================== */
+    .services-section {
+      background: #f5f7fa;
+      padding: 50px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-detail {
+      display: none;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+      background: white;
+      border-radius: 20px;
+      margin-top: 40px;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    .service-detail.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-header {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(20px, 20px) rotate(360deg); }
+    }
+
+    .service-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .service-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-content {
+      padding: 3rem;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Service Carousel */
+    .service-carousel {
+      margin-bottom: 4rem;
+      position: relative;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,250,252,0.98));
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(189, 112, 83, 0.15);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.1), inset 0 1px 20px rgba(255,255,255,0.5);
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .carousel-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at top right, rgba(189, 112, 83, 0.05), transparent);
+      pointer-events: none;
+      border-radius: 30px;
+    }
+
+    .carousel-container:hover {
+      box-shadow: 0 40px 100px rgba(189, 112, 83, 0.25), inset 0 1px 20px rgba(255,255,255,0.5);
+      border-color: rgba(189, 112, 83, 0.25);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 1.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+
+    .service-card {
+      min-width: 100%;
+      background: transparent;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(189, 112, 83, 0.12), transparent);
+      transition: left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card.active {
+      border-color: var(--secondary);
+      background: linear-gradient(135deg, rgba(189, 112, 83, 0.1) 0%, rgba(189, 112, 83, 0.04) 100%);
+      transform: scale(1.05) rotateY(2deg);
+      box-shadow: 0 25px 70px rgba(189, 112, 83, 0.25), inset 0 1px 20px rgba(255,255,255,0.6);
+    }
+
+    .service-card:hover {
+      transform: translateY(-20px) scale(1.05) rotateY(-2deg);
+      box-shadow: 0 40px 90px rgba(189, 112, 83, 0.35), inset 0 1px 20px rgba(255,255,255,0.6);
+      border-color: rgba(189, 112, 83, 0.5);
+    }
+
+    .card-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, rgba(189, 112, 83, 0.2), rgba(189, 112, 83, 0.1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--secondary);
+      box-shadow: 0 15px 40px rgba(189, 112, 83, 0.2), inset 0 1px 10px rgba(255,255,255,0.5);
+      animation: iconPulse 3s ease-in-out infinite, iconFloat 3s ease-in-out infinite;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid rgba(189, 112, 83, 0.3);
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.12); opacity: 0.95; }
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0px); }
+      25% { transform: translateY(-8px); }
+      50% { transform: translateY(-5px); }
+      75% { transform: translateY(-8px); }
+    }
+
+    .service-card:hover .card-icon {
+      transform: scale(1.2) rotateY(10deg);
+      box-shadow: 0 30px 70px rgba(189, 112, 83, 0.6), inset 0 2px 15px rgba(255,255,255,0.4);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      position: relative;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .service-card:hover h3 {
+      color: var(--secondary);
+      transform: translateY(-3px) scale(1.06);
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 500px;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+      margin-top: 4rem;
+      position: relative;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .carousel-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), rgba(189, 112, 83, 0.8));
+      color: white;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 40px rgba(189, 112, 83, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-btn:hover {
+      transform: scale(1.18) rotate(5deg);
+      box-shadow: 0 25px 60px rgba(189, 112, 83, 0.4);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 15px;
+      position: relative;
+    }
+
+    .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(189, 112, 83, 0.3);
+      border: 2px solid var(--secondary);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .dot.active {
+      background: var(--secondary);
+      transform: scale(1.5);
+      box-shadow: 0 0 25px rgba(189, 112, 83, 0.5);
+    }
+
+    .dot:hover {
+      transform: scale(1.35);
+      box-shadow: 0 0 18px rgba(189, 112, 83, 0.4);
+    }
+
+    /* Service Stats */
+    .service-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--gradient-primary);
+      border-radius: 15px;
+      color: white;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Service Process */
+    .service-process {
+      margin: 4rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(76, 88, 100, 0.05), rgba(29, 50, 69, 0.05));
+      border-radius: 15px;
+    }
+
+    .process-title {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-secondary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .process-step h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .process-step p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Advisory Focus Areas */
+    .advisory-focus-areas {
+      margin: 4rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(76, 88, 100, 0.05), rgba(29, 50, 69, 0.05));
+      border-radius: 15px;
+    }
+
+    .advisory-focus-areas h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .focus-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 20px;
+    }
+
+    .focus-item {
+      background: white;
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.25s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .focus-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border-color: var(--primary);
+    }
+
+    .focus-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(189, 112, 83, 0.1), rgba(189, 112, 83, 0.05));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    .focus-item:hover .focus-icon {
+      background: var(--secondary);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .focus-item h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .focus-item p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Service CTA */
+    .service-cta {
+      text-align: center;
+      margin: 4rem 0 2rem;
+      padding: 3rem;
+      background: linear-gradient(135deg, rgba(189, 112, 83, 0.1), rgba(216, 139, 111, 0.1));
+      border-radius: 15px;
+    }
+
+    .cta-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Services Showcase Carousel */
+    .services-showcase-carousel {
+      margin: 3rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .showcase-track {
+      display: flex;
+      gap: 20px;
+      animation: continuousScroll 30s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes continuousScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-300px * 4)); }
+    }
+
+    .showcase-item {
+      flex: 0 0 300px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-item:hover {
+      transform: scale(1.05);
+    }
+
+    .showcase-image {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .showcase-item:hover .showcase-image img {
+      transform: scale(1.1);
+    }
+
+    .showcase-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 2rem 1.5rem 1.5rem;
+      color: white;
+      text-align: center;
+    }
+
+    .showcase-overlay h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .showcase-overlay p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin: 0;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* =====================================================
+       INDUSTRIES SECTION - REMODELED WITH MODERN DESIGN
+    ===================================================== */
+    .industries-section {
+      padding: 0px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .industries-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(189, 112, 83, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(76, 88, 100, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(222, 154, 154, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+      animation: backgroundFloat 20s ease-in-out infinite;
+    }
+
+    @keyframes backgroundFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-10px) rotate(1deg); }
+      66% { transform: translateY(10px) rotate(-1deg); }
+    }
+
+    .industries-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .industries-text {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .industries-text h3 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .industries-text h3::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary), rgba(189, 112, 83, 0.6), var(--secondary));
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+      animation: slideInWidth 1.2s ease-out 0.3s both;
+      box-shadow: 0 2px 8px rgba(189, 112, 83, 0.3);
+    }
+
+    @keyframes slideInWidth {
+      0% { width: 0; opacity: 0; }
+      100% { width: 80px; opacity: 1; }
+    }
+
+    .industries-text p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    /* Industries Carousel */
+    .industries-carousel {
+      margin: 4rem 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .industries-track {
+      display: flex;
+      gap: 20px;
+      animation: continuousScrollIndustries 40s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes continuousScrollIndustries {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-300px * 7)); }
+    }
+
+    .industry-card {
+      flex: 0 0 300px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95));
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(189, 112, 83, 0.2);
+    }
+
+    .industry-card:hover {
+      transform: scale(1.05);
+    }
+
+    .industry-card-content {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .industry-card:hover .industry-card-content {
+      background: linear-gradient(135deg, rgba(189, 112, 83, 0.05), rgba(222, 154, 154, 0.03));
+    }
+
+    .industry-card-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(135deg,
+        rgba(189, 112, 83, 0.2),
+        rgba(222, 154, 154, 0.15),
+        rgba(189, 112, 83, 0.25));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--secondary);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid rgba(189, 112, 83, 0.3);
+      box-shadow: 0 8px 20px rgba(189, 112, 83, 0.2);
+    }
+
+    .industry-card:hover .industry-card-icon {
+      background: linear-gradient(135deg, var(--secondary), rgba(189, 112, 83, 0.9));
+      color: white;
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 12px 30px rgba(189, 112, 83, 0.4);
+    }
+
+    .industry-card h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .industry-card:hover h4 {
+      color: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .industry-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+      transition: all 0.3s ease;
+    }
+
+    .industry-card:hover p {
+      color: var(--dark);
+      transform: translateY(-1px);
+    }
+
+    /* Enhanced mobile responsiveness */
+    @media (max-width: 768px) {
+      .industries-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .industries-track {
+        animation-duration: 30s;
+      }
+
+      .industry-card {
+        flex: 0 0 280px;
+      }
+    }
+
+    /* =====================================================
+       WHO WE ARE SECTIONS - FIXED
+    ===================================================== */
+    .who-we-are-section {
+      padding: 80px 0;
+      background: #f8fafc;
+    }
+
+    .who-we-are-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .who-we-are-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      text-align: center;
+      border-top: 5px solid var(--secondary);
+    }
+
+    .who-we-are-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .who-we-are-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(189, 112, 83, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 2.5rem;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    .who-we-are-card:hover .who-we-are-icon {
+      background: var(--secondary);
+      color: white;
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    .who-we-are-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .who-we-are-card p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .who-we-are-card .btn {
+      margin-top: 10px;
+    }
+
+    /* =====================================================
+       ABOUT SECTION
+    ===================================================== */
+    .about {
+      padding: 30px 0;
+      background: #ffffff;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .about-features {
+      margin: 30px 0;
+    }
+
+    .about-features li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .about-features li i {
+      color: var(--secondary);
+      background: rgba(189, 112, 83, 0.1);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image {
+      position: relative;
+      margin-top: -70px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-xl);
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.02);
+    }
+
+    /* =====================================================
+       TESTIMONIALS SECTION
+    ===================================================== */
+    .testimonials {
+      padding: 80px 0;
+      background: #f5f7fa;
+    }
+
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .author-info h4 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================
+       CONTACT SECTION
+    ===================================================== */
+    #contact {
+      padding: 100px 0;
+      background: #ffffff;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .contact-info > p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .contact-details p {
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-details i {
+      color: var(--secondary);
+      width: 20px;
+    }
+
+    .contact-form {
+      background:rgb(232, 232, 232);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(189, 112, 83, 0.1);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      padding: 17px;
+      font-size: 1.05rem;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      background: var(--gradient-primary);
+      color: #ffffff;
+      padding: 60px 0 30px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background: var(--secondary);
+      bottom: 0;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #d1d5db;
+      margin-bottom: 10px;
+      display: block;
+      line-height: 1.7;
+    }
+
+    .footer-col a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+
+
+
+
+    /* =====================================================
+       RESPONSIVE DESIGN
+    ===================================================== */
+    @media (max-width: 1100px) {
+      .header-contact {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .industries-content,
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .main-nav {
+        flex: 0;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        gap: 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        height: auto;
+        width: 100%;
+        padding: 10px 20px;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .stats-container {
+        gap: 25px;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .whatsapp-bot-widget {
+        width: calc(100vw - 40px);
+        left: 20px;
+        right: 20px;
+      }
+
+      .service-header {
+        padding: 2.5rem 2rem;
+      }
+
+      .service-content {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+      }
+
+      .service-header {
+        padding: 2rem 1.5rem;
+      }
+
+      .service-title {
+        font-size: 2rem;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+    }
+
+    /* =====================================================
+       ANIMATION CLASSES
+    ===================================================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .zoom-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .stagger-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ================= HEADER ================= -->
+  <header class="dark-header scrolled" id="header">
+    <div class="container header-container">
+      <a href="#home" class="brand">
+        <div class="cs-logo">CS</div>
+        <div class="brand-text">Candor <span>Solutions</span></div>
+      </a>
+
+      <nav class="main-nav">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="who-we-are.html">Who We Are</a></li>
+          <li class="nav-dropdown">
+            <a href="services.html" class="dropdown-toggle">
+              Services <i class="fas fa-chevron-down chevron"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html">
+                <i class="fas fa-list"></i> All Services Overview
+              </a></li>
+              <li><a href="advisory-consulting.html">
+                <i class="fas fa-search"></i> Advisory Consulting
+              </a></li>
+              <li><a href="strategic-placement.html">
+                <i class="fas fa-user-tie"></i> Strategic Placement
+              </a></li>
+              <li><a href="talent-recruitment.html">
+                <i class="fas fa-users"></i> Talent Recruitment
+              </a></li>
+              <li><a href="software-development.html">
+                <i class="fas fa-code"></i> Software Development
+              </a></li>
+            </ul>
+          <li class="nav-dropdown">
+            <a href="industries.html" class="dropdown-toggle">
+              Industries <i class="fas fa-chevron-down chevron"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="technology-it.html">
+                <i class="fas fa-microchip"></i> Technology & IT
+              </a></li>
+              <li><a href="finance-banking.html">
+                <i class="fas fa-university"></i> Finance & Banking
+              </a></li>
+              <li><a href="healthcare-life-sciences.html">
+                <i class="fas fa-heartbeat"></i> Healthcare & Life Sciences
+              </a></li>
+              <li><a href="retail-ecommerce.html">
+                <i class="fas fa-shopping-cart"></i> Retail & E-Commerce
+              </a></li>
+              <li><a href="education-edtech.html">
+                <i class="fas fa-graduation-cap"></i> Education & EdTech
+              </a></li>
+              <li><a href="manufacturing-engineering.html">
+                <i class="fas fa-cogs"></i> Manufacturing & Engineering
+              </a></li>
+              <li><a href="logistics-supply-chain.html">
+                <i class="fas fa-truck"></i> Logistics & Supply Chain
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-contact">
+        <div class="nav-info">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@thecandorsolutions.com">info@thecandorsolutions.com</a>
+        </div>
+
+        <div class="nav-info">
+          <a href="https://wa.me/15551234567" style="color: #25d366;"><i class="fab fa-whatsapp heartbeat" style="color: #25d366; font-size: 1.5em;"></i></a>
+        </div>
+      </div>
+
+      <div class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+
+    </div>
+  </header>
+
+  <!-- ================= ENHANCED HERO ================= -->
+  <section class="hero" id="home">
+   <div class="hero-bg-container" id="heroBackgrounds"></div>
+   <div class="hero-overlay"></div>
+    
+    <div class="container">
+      <h1 class="fade-in visible">Expert Consulting Solutions for Your Business Growth</h1>
+      <h2 class="fade-in visible" style="transition-delay: 0.1s; font-weight: 600; color: var(--secondary); margin-bottom: 10px;">Candor Solutions — Advisory, Talent, and Technology Enablement</h2>
+      <p class="fade-in visible" style="transition-delay: 0.2s">
+        Candor Solutions delivers strategic placement, recruitment, and custom software development
+        services to help organizations scale efficiently and achieve sustainable growth.
+      </p>
+      <div class="hero-btns fade-in visible" style="transition-delay: 0.4s">
+        <a href="#services" class="btn">Explore Our Services</a>
+        <a href="#contact" class="btn btn-outline">Schedule a Consultation</a>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-item fade-in visible" style="transition-delay: 0.6s">
+          <span class="stat-number" data-count="250">250</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item fade-in visible" style="transition-delay: 0.7s">
+          <span class="stat-number" data-count="98">98</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+        <div class="stat-item fade-in visible" style="transition-delay: 0.8s">
+          <span class="stat-number" data-count="15">15</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item fade-in visible" style="transition-delay: 0.9s">
+          <span class="stat-number" data-count="50">50</span>
+          <span class="stat-label">Expert Consultants</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-indicator" id="bgIndicator"><div class="bg-dot active" data-index="0"></div><div class="bg-dot" data-index="1"></div><div class="bg-dot" data-index="2"></div><div class="bg-dot" data-index="3"></div><div class="bg-dot" data-index="0"></div><div class="bg-dot" data-index="1"></div><div class="bg-dot" data-index="2"></div><div class="bg-dot" data-index="3"></div></div>
+  </section>
+
+
+
+  <!-- ================= ENHANCED SERVICES SECTION ================= -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="fade-in visible">Our Professional Services</h2>
+        <p class="fade-in visible" style="transition-delay: 0.2s">
+          Comprehensive solutions designed to drive your business forward.
+        </p>
+      </div>
+
+      <div class="services-showcase-carousel">
+        <div class="showcase-track" style="animation-play-state: running;">
+          <!-- First set of 4 services -->
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Advisory Consulting">
+              <div class="showcase-overlay">
+                <h4>Advisory Consulting</h4>
+                <p>Strategic Business Guidance</p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Strategic Placement">
+              <div class="showcase-overlay">
+                <h4>Strategic Placement</h4>
+                <p>Executive &amp; Leadership Talent</p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Talent Recruitment">
+              <div class="showcase-overlay">
+                <h4>Talent Recruitment</h4>
+                <p>Full-Cycle Hiring Solutions</p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Software Development">
+              <div class="showcase-overlay">
+                <h4>Software Development</h4>
+                <p>Custom Digital Solutions</p>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate set for seamless loop -->
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Advisory Consulting">
+              <div class="showcase-overlay">
+                <h4>Advisory Consulting</h4>
+                <p>Strategic Business Guidance</p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Strategic Placement">
+              <div class="showcase-overlay">
+                <h4>Strategic Placement</h4>
+                <p>Executive &amp; Leadership Talent</p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Talent Recruitment">
+              <div class="showcase-overlay">
+                <h4>Talent Recruitment</h4>
+                <p>Full-Cycle Hiring Solutions</p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-image">
+              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Software Development">
+              <div class="showcase-overlay">
+                <h4>Software Development</h4>
+                <p>Custom Digital Solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Carousel -->
+      <div class="service-carousel">
+        <div class="carousel-container">
+          <div class="carousel-track" style="transform: translateX(0%);">
+            <div class="service-card active" onclick="showService('advisory-consulting')">
+              <div class="card-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>Advisory Consulting</h3>
+              <p>Strategic guidance that transforms challenges into opportunities through expert analysis and tailored solutions.</p>
+            </div>
+
+            <div class="service-card" onclick="showService('strategic-placement')">
+              <div class="card-icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <h3>Strategic Placement</h3>
+              <p>Building future-ready teams through intelligent talent alignment and data-driven hiring strategies.</p>
+            </div>
+
+            <div class="service-card" onclick="showService('talent-recruitment')">
+              <div class="card-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>Talent Recruitment</h3>
+              <p>Smarter hiring strategies for competitive talent markets and sustainable organizational growth.</p>
+            </div>
+
+            <div class="service-card" onclick="showService('software-development')">
+              <div class="card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Software Development</h3>
+              <p>Custom digital solutions that power growth, drive innovation, and transform business operations.</p>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-btn prev" onclick="moveCarousel(-1)" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-dots">
+            <span class="dot active" onclick="goToSlide(0)" aria-label="Slide 1"></span>
+            <span class="dot" onclick="goToSlide(1)" aria-label="Slide 2"></span>
+            <span class="dot" onclick="goToSlide(2)" aria-label="Slide 3"></span>
+            <span class="dot" onclick="goToSlide(3)" aria-label="Slide 4"></span>
+          </div>
+          <button class="carousel-btn next" onclick="moveCarousel(1)" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Service Sections -->
+      <section id="advisory-consulting" class="service-detail active">
+        <div class="service-header">
+          <h2 class="service-title">Advisory Consulting</h2>
+          <p class="service-subtitle">
+            Strategic guidance that transforms challenges into opportunities through expert analysis and tailored solutions.
+          </p>
+        </div>
+
+        <div class="service-content">
+          <p class="intro">
+            Our advisory consulting services provide strategic guidance to help organizations navigate complex business challenges, optimize operations, and achieve sustainable growth. We combine deep industry expertise with data-driven insights to deliver actionable recommendations that drive measurable results. Our "Advisory → Execution" approach ensures that strategic insights lead to tangible outcomes, with our talent and technology services supporting seamless delivery.
+          </p>
+
+          <div class="service-stats">
+            <div class="stat-box">
+              <div class="stat-value">95%</div>
+              <div class="stat-label">Client Success Rate</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">50+</div>
+              <div class="stat-label">Advisory Projects</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">15+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">98%</div>
+              <div class="stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+
+          <div class="service-process">
+            <h3 class="process-title">Our Advisory → Execution Process</h3>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Advisory Assessment</h4>
+                <p>Comprehensive evaluation of your current state, challenges, and opportunities through data-driven analysis and stakeholder interviews.</p>
+              </div>
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Strategic Planning</h4>
+                <p>Development of tailored strategies and roadmaps aligned with your business objectives and market dynamics.</p>
+              </div>
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Execution Support</h4>
+                <p>Seamless implementation with our talent acquisition and technology services supporting your success.</p>
+              </div>
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Optimization & Growth</h4>
+                <p>Continuous optimization and strategic adjustments to ensure long-term success and sustainable growth.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="advisory-focus-areas">
+            <div class="focus-grid">
+              <div class="focus-item">
+                <div class="focus-icon">
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <h4>Strategy Alignment</h4>
+                <p>Align your business strategy with market opportunities and competitive positioning for sustainable growth.</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">
+                  <i class="fas fa-route"></i>
+                </div>
+                <h4>Transformation Roadmap</h4>
+                <p>Develop comprehensive roadmaps for digital transformation, organizational change, and operational excellence.</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">
+                  <i class="fas fa-sitemap"></i>
+                </div>
+                <h4>Org Design</h4>
+                <p>Optimize organizational structure, roles, and processes to maximize efficiency and employee engagement.</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <h4>Tech Advisory</h4>
+                <p>Navigate technology decisions, architecture planning, and digital innovation strategies.</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <h4>Talent Strategy</h4>
+                <p>Build comprehensive talent strategies that attract, develop, and retain top performers.</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h4>Vendor/RFP Advisory</h4>
+                <p>Expert guidance on vendor selection, RFP processes, and partnership management.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-cta">
+            <h3 class="cta-title">Transform Your Business Strategy</h3>
+            <p class="cta-subtitle">
+              Partner with our expert advisors to unlock your organization's full potential and achieve sustainable competitive advantage.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn">Schedule Advisory Consultation</a>
+              <button class="btn btn-ghost" onclick="alert('Case studies sent to your email!')">
+                <i class="fas fa-file-alt"></i> View Case Studies
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="strategic-placement" class="service-detail">
+        <div class="service-header">
+          <h2 class="service-title">Strategic Placement</h2>
+          <p class="service-subtitle">
+            Building future-ready teams through intelligent talent alignment and data-driven hiring strategies.
+          </p>
+        </div>
+        
+        <div class="service-content">
+          <p class="intro">
+            We connect exceptional talent with forward-thinking organizations using a precise, data-driven hiring approach. 
+            Our strategic placement services go beyond recruitment—ensuring every hire delivers long-term impact, 
+            cultural alignment, and measurable business value.
+          </p>
+          
+          <div class="service-stats">
+            <div class="stat-box">
+              <div class="stat-value">95%</div>
+              <div class="stat-label">Retention Rate</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">30 Days</div>
+              <div class="stat-label">Avg. Time-to-Fill</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">1000+</div>
+              <div class="stat-label">Placements Made</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">98%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+          </div>
+          
+          <div class="service-process">
+            <h3 class="process-title">Our 4-Step Placement Process</h3>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Needs Assessment</h4>
+                <p>Deep dive into your requirements, team dynamics, and cultural needs through comprehensive analysis.</p>
+              </div>
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Talent Sourcing</h4>
+                <p>Leveraging our extensive network and AI-powered search tools to identify top candidates globally.</p>
+              </div>
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Screening &amp; Assessment</h4>
+                <p>Comprehensive technical evaluation, behavioral interviews, and cultural fit analysis.</p>
+              </div>
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Integration Support</h4>
+                <p>90-day onboarding support with regular check-ins and performance tracking for success.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="service-cta">
+            <h3 class="cta-title">Ready to Build Your Dream Team?</h3>
+            <p class="cta-subtitle">
+              Connect with our placement experts today and discover how we can help you attract, 
+              hire, and retain the talent that drives business success.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn">Request Free Consultation</a>
+              <a href="tel:+15551234567" class="btn btn-ghost">
+                <i class="fas fa-phone"></i> Call Now: +1 (555) 123-4567
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="talent-recruitment" class="service-detail">
+        <div class="service-header">
+          <h2 class="service-title">Talent Recruitment</h2>
+          <p class="service-subtitle">
+            Smarter hiring strategies for competitive talent markets and sustainable organizational growth.
+          </p>
+        </div>
+        
+        <div class="service-content">
+          <p class="intro">
+            Our end-to-end recruitment solutions help organizations attract, engage, and retain top talent—while reducing 
+            time-to-hire and improving hiring outcomes through data-driven strategies and market intelligence.
+          </p>
+          
+          <div class="service-cta">
+            <h3 class="cta-title">Transform Your Recruitment Strategy</h3>
+            <p class="cta-subtitle">
+              Our recruitment experts are ready to help you build a winning talent acquisition strategy 
+              that delivers measurable results and sustainable growth.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn">Schedule Strategy Session</a>
+              <button class="btn btn-ghost" onclick="alert('Case studies sent to your email!')">
+                <i class="fas fa-file-alt"></i> View Case Studies
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="software-development" class="service-detail">
+        <div class="service-header">
+          <h2 class="service-title">Software Development</h2>
+          <p class="service-subtitle">
+            Custom digital solutions that power growth, drive innovation, and transform business operations.
+          </p>
+        </div>
+
+        <div class="service-content">
+          <p class="intro">
+            We design and develop scalable, secure, and user-centric software solutions that help businesses
+            transform, optimize, and innovate. From web applications to enterprise systems, we deliver
+            technology that drives real business value and competitive advantage.
+          </p>
+
+          <div class="service-stats">
+            <div class="stat-box">
+              <div class="stat-value">99.9%</div>
+              <div class="stat-label">System Uptime</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">40%</div>
+              <div class="stat-label">Faster Development</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">200+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">24/7</div>
+              <div class="stat-label">Support Available</div>
+            </div>
+          </div>
+
+          <div class="service-cta">
+            <h3 class="cta-title">Start Your Digital Transformation</h3>
+            <p class="cta-subtitle">
+              Whether you need a custom application, enterprise system, or digital transformation strategy,
+              our development team is ready to bring your vision to life.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn">Request Project Consultation</a>
+              <button class="btn btn-ghost" onclick="alert('Portfolio sent to your email!')">
+                <i class="fas fa-eye"></i> View Our Portfolio
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </section>
+
+  <!-- ================= INDUSTRIES SECTION ================= -->
+  <section id="industries" class="industries-section">
+    <div class="container">
+      <div class="section-title">
+        <br>
+          <br>  <br>
+      
+        <h2 class="fade-in visible">Industries We Serve</h2>
+        <p class="fade-in visible" style="transition-delay: 0.2s">
+          Delivering specialized solutions across diverse sectors with deep industry expertise.
+        </p>
+         
+         
+
+ 
+
+        <div class="industries-carousel">
+          <div class="industries-track">
+            <!-- First set of industries -->
+            <div class="industry-card" onclick="window.location.href='technology-it.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <h4>Technology & IT</h4>
+                <p>Digital transformation, cloud migration, and innovative software solutions for tech companies.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='finance-banking.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-university"></i>
+                </div>
+                <h4>Finance & Banking</h4>
+                <p>Regulatory compliance, risk management, and fintech innovation for financial institutions.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='healthcare-life-sciences.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-heartbeat"></i>
+                </div>
+                <h4>Healthcare & Life Sciences</h4>
+                <p>Patient care optimization, medical technology, and healthcare system modernization.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='retail-ecommerce.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h4>Retail & E-Commerce</h4>
+                <p>Customer experience enhancement, supply chain optimization, and digital commerce platforms.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='manufacturing-engineering.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <h4>Manufacturing & Engineering</h4>
+                <p>Process automation, quality control systems, and industrial IoT solutions.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='education-edtech.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4>Education & EdTech</h4>
+                <p>Learning management systems, educational technology, and institutional transformation.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='logistics-supply-chain.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <h4>Logistics & Supply Chain</h4>
+                <p>Supply chain optimization, transportation management, and logistics technology solutions.</p>
+              </div>
+            </div>
+
+            <!-- Duplicate set for seamless loop -->
+            <div class="industry-card" onclick="window.location.href='technology-it.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <h4>Technology & IT</h4>
+                <p>Digital transformation, cloud migration, and innovative software solutions for tech companies.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='finance-banking.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-university"></i>
+                </div>
+                <h4>Finance & Banking</h4>
+                <p>Regulatory compliance, risk management, and fintech innovation for financial institutions.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='healthcare-life-sciences.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-heartbeat"></i>
+                </div>
+                <h4>Healthcare & Life Sciences</h4>
+                <p>Patient care optimization, medical technology, and healthcare system modernization.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='retail-ecommerce.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h4>Retail & E-Commerce</h4>
+                <p>Customer experience enhancement, supply chain optimization, and digital commerce platforms.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='manufacturing-engineering.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <h4>Manufacturing & Engineering</h4>
+                <p>Process automation, quality control systems, and industrial IoT solutions.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='education-edtech.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4>Education & EdTech</h4>
+                <p>Learning management systems, educational technology, and institutional transformation.</p>
+              </div>
+            </div>
+
+            <div class="industry-card" onclick="window.location.href='logistics-supply-chain.html'">
+              <div class="industry-card-content">
+                <div class="industry-card-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <h4>Logistics & Supply Chain</h4>
+                <p>Supply chain optimization, transportation management, and logistics technology solutions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- ================= HOW WE WORK ================= -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="fade-in visible">How We Work</h2>
+        <p class="fade-in visible" style="transition-delay: 0.2s">
+          Our proven methodology delivers exceptional results through strategic engagement and collaborative partnerships.
+        </p>
+      </div>
+
+      <div class="testimonials-container">
+        <div class="testimonial-card fade-in visible" style="transition-delay: 0.3s">
+          <div class="testimonial-text">
+            "We begin every engagement with a comprehensive needs assessment, understanding your business objectives, team dynamics, and growth challenges to develop a tailored strategy."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">01</div>
+            <div class="author-info">
+              <h4>Discovery & Assessment</h4>
+              <p>Strategic Analysis Phase</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in visible" style="transition-delay: 0.4s">
+          <div class="testimonial-text">
+            "Our team leverages data-driven insights and industry expertise to design customized solutions, whether it's talent acquisition, software development, or business transformation."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">02</div>
+            <div class="author-info">
+              <h4>Strategic Planning</h4>
+              <p>Solution Design Phase</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in visible" style="transition-delay: 0.5s">
+          <div class="testimonial-text">
+            "We execute with precision, maintaining transparent communication throughout the process. Our agile methodology ensures flexibility and rapid adaptation to your needs."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">03</div>
+            <div class="author-info">
+              <h4>Implementation & Support</h4>
+              <p>Execution & Optimization Phase</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="zoom-in visible">Get In Touch</h2>
+        <p class="zoom-in visible" style="transition-delay: 0.2s">Let's discuss how we can help transform your business vision into reality.</p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info slide-in-left visible" style="transition-delay: 0.3s">
+          <h3>Start a Conversation</h3>
+          <p>
+            Our team is ready to understand your unique needs and provide 
+            tailored solutions. Reach out today for a confidential consultation.
+          </p>
+          
+          <div class="contact-details">
+            <p><i class="fas fa-map-marker-alt"></i> 123 Business Avenue, New York, NY 10001, USA</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@candorsolutions.com">info@candorsolutions.com</a></p>
+            <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+            <p><i class="fas fa-headset"></i> 24/7 Emergency Support Available</p>
+          </div>
+          
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form slide-in-right visible" style="transition-delay: 0.4s">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Full Name" required="">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email Address" required="">
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <select class="form-control" required="">
+                <option value="" disabled="" selected="">Select Service Interest</option>
+                <option>Strategic Placement</option>
+                <option>Talent Recruitment</option>
+                <option>Software Development</option>
+                <option>Multiple Services</option>
+                <option>Business Consulting</option>
+                <option>Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Tell us about your project or requirements..." rows="5" required=""></textarea>
+            </div>
+            <button type="submit" class="btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Candor Solutions</h3>
+          <p>
+            Professional consulting services specializing in talent solutions 
+            and technology development to drive business success.
+          </p>
+
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#pageabout">About Us</a>
+          <a href="#testimonials">Engagement</a>
+          <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Our Services</h3>
+          <a href="#services" onclick="showService('strategic-placement')">Strategic Placement</a>
+          <a href="#services" onclick="showService('talent-recruitment')">Talent Recruitment</a>
+          <a href="#services" onclick="showService('software-development')">Software Development</a>
+          <a href="#contact">Business Consulting</a>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+
+
+          <p><i class="fas fa-envelope"></i> info@thecandorsolutions.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</p>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2026 Candor Solutions. All rights reserved. | <a href="#" style="color: #f5f5f5;">Privacy Policy</a> | <a href="#" style="color: #f5f5f5;">Terms of Service</a> | <a href="#" style="color: #f5f5f5;">Cookie Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Single static background image for hero section
+    function initHeroBackgrounds() {
+      const heroBgContainer = document.getElementById('heroBackgrounds');
+
+      // Create single background image element
+      const bgDiv = document.createElement('div');
+      bgDiv.className = 'hero-bg active';
+      bgDiv.style.backgroundImage = 'url("csherologo.webp")';
+      heroBgContainer.appendChild(bgDiv);
+    }
+
+    // Service functionality
+    function showService(id, scrollToSection = true) {
+      // Hide all service details
+      document.querySelectorAll('.service-detail').forEach(detail => {
+        detail.classList.remove('active');
+      });
+
+      // Remove active class from all service cards
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.classList.remove('active');
+      });
+
+      // Show selected service detail
+      const serviceElement = document.getElementById(id);
+      if (serviceElement) {
+        serviceElement.classList.add('active');
+      }
+
+      // Activate corresponding service cards
+      document.querySelectorAll(`.service-card[onclick*="${id}"]`).forEach(card => {
+        card.classList.add('active');
+      });
+
+      // Optionally scroll to services section smoothly, but only if not already in view
+      if (scrollToSection) {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+          const rect = servicesSection.getBoundingClientRect();
+          const isInView = rect.top >= -100 && rect.bottom <= window.innerHeight + 100;
+
+          if (!isInView) {
+            window.scrollTo({
+              top: servicesSection.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+    }
+
+    // Initialize page with first service active
+    function initializeServices() {
+      // Initialize without forcing a scroll
+      showService('advisory-consulting', false);
+    }
+
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+    const header = document.getElementById("header");
+
+    mobileToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileToggle.querySelector("i");
+      icon.classList.toggle("fa-bars");
+      icon.classList.toggle("fa-times");
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove("active");
+        mobileToggle.querySelector("i").classList.add("fa-bars");
+        mobileToggle.querySelector("i").classList.remove("fa-times");
+      });
+    });
+
+    // Header scroll effect
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      // Make transparent when scrolling up
+      if (currentScrollY < lastScrollY && currentScrollY > 100) {
+        header.classList.add("transparent");
+      } else {
+        header.classList.remove("transparent");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove("active");
+        if (item.getAttribute("href") === `#${current}`) {
+          item.classList.add("active");
+        }
+      });
+    });
+
+    // Form submission
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const name = this.querySelector('input[type="text"]').value;
+      const email = this.querySelector('input[type="email"]').value;
+      const service = this.querySelector('select').value;
+      
+      alert(`Thank you, ${name}! Your consultation request for "${service}" has been received. We'll contact you at ${email} within 24 hours.`);
+      
+      this.reset();
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Scroll animation implementation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.querySelectorAll('.fade-in, .zoom-in, .slide-in-left, .slide-in-right, .stagger-item').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Animated counter for stats
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const animateCounter = () => {
+      statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-count'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        
+        let current = 0;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          stat.textContent = Math.floor(current);
+        }, 16);
+      });
+    };
+
+    // Trigger counter when stats section is in view
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.hero');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        const rate = scrolled * -0.5;
+        document.querySelectorAll('.hero-bg').forEach(bg => {
+          bg.style.backgroundPosition = `center ${rate}px`;
+        });
+      }
+    });
+
+    // Carousel functionality
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let autoPlayInterval;
+    let isPaused = false;
+
+    function moveCarousel(direction) {
+      currentSlide += direction;
+
+      if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+      } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+      }
+
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateCarousel();
+      // Removed resetAutoPlay to keep continuous auto-play
+    }
+
+    function updateCarousel() {
+      const track = document.querySelector('.carousel-track');
+      const dots = document.querySelectorAll('.dot');
+
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+
+      const serviceIds = ['advisory-consulting', 'strategic-placement', 'talent-recruitment', 'software-development'];
+      // Update content for the active slide without forcing a scroll
+      showService(serviceIds[currentSlide], false);
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        moveCarousel(1);
+      }, 5000);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlayInterval);
+    }
+
+    // Removed resetAutoPlay function to keep continuous auto-play
+
+    // Removed pause and resume functions to keep auto-play continuous
+
+
+
+    // Advisory section animations
+    function initAdvisoryAnimations() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe advisory elements
+      document.querySelectorAll('.advisory-phase, .focus-card, .advisory-cta').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Add staggered animation to focus cards
+      document.querySelectorAll('.focus-card').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+      });
+    }
+
+      // Initialize everything when page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        initHeroBackgrounds();
+        initializeServices();
+        initAdvisoryAnimations();
+        updateCarousel();
+
+      // Add click listeners to service cards
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const onclick = this.getAttribute('onclick');
+          if (onclick) {
+            const match = onclick.match(/showService\('([^']+)'\)/);
+            if (match && match[1]) {
+              showService(match[1]);
+            }
+          }
+        });
+      });
+
+      // Auto-play continues without pausing on hover
+
+      // Industries carousel continues scrolling without pausing on hover
+
+      // Showcase carousel continues scrolling without pausing on hover
+    });
+  </script>
+
+  <!-- Floating Help/Chatbot Button -->
+  <div class="floating-help-btn" id="floatingHelpBtn">
+    <i class="fas fa-question-circle"></i>
+    <span class="help-text">Help</span>
+  </div>
+
+  <style>
+    /* Floating Help Button */
+    .floating-help-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(189, 112, 83, 0.4);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 1001;
+      animation: subtleFloat 3s ease-in-out infinite;
+      overflow: hidden;
+    }
+
+    .floating-help-btn:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(189, 112, 83, 0.6);
+      animation-play-state: paused;
+    }
+
+    .floating-help-btn .help-text {
+      position: absolute;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .floating-help-btn:hover .help-text {
+      opacity: 1;
+      transform: translateX(-70px);
+    }
+
+    @keyframes subtleFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .floating-help-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Floating Help Button Functionality
+    document.getElementById('floatingHelpBtn').addEventListener('click', function() {
+      // You can customize this to open a chat widget, modal, or redirect
+      alert('Help & Support: How can we assist you today?\n\nContact us via:\n- WhatsApp: +1 (555) 123-4567\n- Email: info@thecandorsolutions.com\n- Phone: +1 (555) 123-4567');
+    });
+  </script>
+
+</body></html>
