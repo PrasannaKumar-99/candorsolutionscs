@@ -1336,64 +1336,1197 @@
       background-attachment: fixed;
     }
 
-    @media (max-width: 768px) {
+    /* Responsive Design */
+
+    /* Desktop View (1441px+) */
+    @media (min-width: 1441px) {
+      .container {
+        max-width: 1400px;
+        padding: 0 30px;
+      }
+
+      .header-container {
+        max-width: 1600px;
+        width: 180%;
+      }
+
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 4.2rem;
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 1.6rem;
+        max-width: 1200px;
+        line-height: 1.8;
+      }
+
+      .hero-stats {
+        gap: 120px;
+      }
+
+      .stat-number {
+        font-size: 4.2rem;
+      }
+
+      .stat-label {
+        font-size: 1.2rem;
       }
 
       .section-header h2 {
+        font-size: 3.5rem;
+        letter-spacing: -2px;
+      }
+
+      .section-header p {
+        font-size: 1.5rem;
+        max-width: 1000px;
+      }
+
+      .advisory-flow {
+        gap: 120px;
+      }
+
+      .advisory-phase {
+        padding: 70px 60px;
+      }
+
+      .phase-icon {
+        width: 140px;
+        height: 140px;
+        font-size: 3.2rem;
+      }
+
+      .advisory-phase h3 {
+        font-size: 2.8rem;
+      }
+
+      .advisory-phase p {
+        font-size: 1.4rem;
+      }
+
+      .flow-arrow {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+      }
+
+      .advisory-focus-areas {
+        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        gap: 70px;
+      }
+
+      .focus-card {
+        padding: 60px 50px;
+      }
+
+      .focus-icon {
+        width: 90px;
+        height: 90px;
+        font-size: 2.4rem;
+      }
+
+      .focus-card h4 {
+        font-size: 1.9rem;
+      }
+
+      .focus-card p {
+        font-size: 1.1rem;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 50px;
+      }
+
+      .process-step {
+        padding: 50px 40px;
+      }
+
+      .step-number {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+      }
+
+      .process-step h4 {
+        font-size: 1.6rem;
+      }
+
+      .process-step p {
+        font-size: 1.1rem;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 50px;
+      }
+
+      .testimonial-card {
+        padding: 50px;
+      }
+
+      .testimonial-content p {
+        font-size: 1.2rem;
+      }
+
+      .author-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+      }
+
+      .author-info h5 {
+        font-size: 1.2rem;
+      }
+
+      .author-info span {
+        font-size: 1rem;
+      }
+
+      .advisory-cta h3 {
+        font-size: 2.6rem;
+      }
+
+      .advisory-cta p {
+        font-size: 1.4rem;
+        max-width: 800px;
+      }
+
+      .cta-buttons {
+        gap: 40px;
+      }
+
+      .advisory-cta .btn {
+        padding: 22px 60px;
+        font-size: 1.3rem;
+      }
+
+      .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 70px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.4rem;
+      }
+
+      .footer-col p,
+      .footer-col a {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Laptop View (1025px - 1440px) */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+      .container {
+        max-width: 1100px;
+        padding: 0 25px;
+      }
+
+      .header-container {
+        max-width: 1400px;
+        width: 160%;
+      }
+
+      .hero h1 {
+        font-size: 3.8rem;
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        max-width: 1000px;
+      }
+
+      .hero-stats {
+        gap: 80px;
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+      }
+
+      .section-header h2 {
+        font-size: 3rem;
+        letter-spacing: -1px;
+      }
+
+      .section-header p {
+        font-size: 1.4rem;
+      }
+
+      .advisory-flow {
+        gap: 90px;
+      }
+
+      .advisory-phase {
+        padding: 65px 55px;
+      }
+
+      .phase-icon {
+        width: 130px;
+        height: 130px;
+        font-size: 2.8rem;
+      }
+
+      .advisory-phase h3 {
         font-size: 2.5rem;
+      }
+
+      .advisory-phase p {
+        font-size: 1.3rem;
+      }
+
+      .flow-arrow {
+        width: 110px;
+        height: 110px;
+        font-size: 2.8rem;
+      }
+
+      .advisory-focus-areas {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 55px;
+      }
+
+      .focus-card {
+        padding: 55px 45px;
+      }
+
+      .focus-icon {
+        width: 85px;
+        height: 85px;
+        font-size: 2.2rem;
+      }
+
+      .focus-card h4 {
+        font-size: 1.7rem;
+      }
+
+      .focus-card p {
+        font-size: 1rem;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 45px;
+      }
+
+      .process-step {
+        padding: 45px 35px;
+      }
+
+      .step-number {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+      }
+
+      .process-step h4 {
+        font-size: 1.5rem;
+      }
+
+      .process-step p {
+        font-size: 1rem;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 45px;
+      }
+
+      .testimonial-card {
+        padding: 45px;
+      }
+
+      .testimonial-content p {
+        font-size: 1.1rem;
+      }
+
+      .author-avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+      }
+
+      .author-info h5 {
+        font-size: 1.1rem;
+      }
+
+      .author-info span {
+        font-size: 0.95rem;
+      }
+
+      .advisory-cta h3 {
+        font-size: 2.3rem;
+      }
+
+      .advisory-cta p {
+        font-size: 1.3rem;
+      }
+
+      .cta-buttons {
+        gap: 35px;
+      }
+
+      .advisory-cta .btn {
+        padding: 20px 50px;
+        font-size: 1.2rem;
+      }
+
+      .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 55px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.3rem;
+      }
+
+      .footer-col p,
+      .footer-col a {
+        font-size: 1rem;
+      }
+    }
+
+    /* Tablet View (769px - 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container {
+        max-width: 1000px;
+        padding: 0 20px;
+      }
+
+      .header-container {
+        max-width: 1200px;
+        width: 140%;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        max-width: 850px;
+      }
+
+      .hero-stats {
+        gap: 60px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.7rem;
+      }
+
+      .section-header p {
+        font-size: 1.2rem;
+      }
+
+      .advisory-flow {
+        gap: 70px;
+      }
+
+      .advisory-phase {
+        padding: 55px 45px;
+      }
+
+      .phase-icon {
+        width: 110px;
+        height: 110px;
+        font-size: 2.5rem;
+      }
+
+      .advisory-phase h3 {
+        font-size: 2.2rem;
+      }
+
+      .advisory-phase p {
+        font-size: 1.2rem;
+      }
+
+      .flow-arrow {
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+      }
+
+      .advisory-focus-areas {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 45px;
+      }
+
+      .focus-card {
+        padding: 45px 35px;
+      }
+
+      .focus-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 2rem;
+      }
+
+      .focus-card h4 {
+        font-size: 1.5rem;
+      }
+
+      .focus-card p {
+        font-size: 0.95rem;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 35px;
+      }
+
+      .process-step {
+        padding: 35px 25px;
+      }
+
+      .step-number {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+      }
+
+      .process-step h4 {
+        font-size: 1.3rem;
+      }
+
+      .process-step p {
+        font-size: 0.95rem;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 35px;
+      }
+
+      .testimonial-card {
+        padding: 35px;
+      }
+
+      .testimonial-content p {
+        font-size: 1rem;
+      }
+
+      .author-avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+      }
+
+      .author-info h5 {
+        font-size: 1rem;
+      }
+
+      .author-info span {
+        font-size: 0.9rem;
+      }
+
+      .advisory-cta h3 {
+        font-size: 2rem;
+      }
+
+      .advisory-cta p {
+        font-size: 1.2rem;
+      }
+
+      .cta-buttons {
+        gap: 25px;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .advisory-cta .btn {
+        padding: 16px 40px;
+        font-size: 1.1rem;
+      }
+
+      .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 45px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.2rem;
+      }
+
+      .footer-col p,
+      .footer-col a {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Mobile View (max-width: 768px) */
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+        padding: 0 10px;
+      }
+
+      .header-container {
+        height: 60px;
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .brand {
+        margin-left: 10px;
+      }
+
+      .cs-logo {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+
+      .brand-text {
+        font-size: 1.3rem;
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+        margin-right: 10px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--primary-dark);
+        flex-direction: column;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 1rem;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-menu {
+        position: static;
+        background: rgba(255,255,255,0.1);
+        border-top: none;
+        box-shadow: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+      }
+
+      .dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding-top: 70px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 100%;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .section-header {
+        margin-bottom: 50px;
+      }
+
+      .section-header h2 {
+        font-size: 2.4rem;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        font-size: 1.1rem;
+        line-height: 1.6;
       }
 
       .advisory-flow {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
+      }
+
+      .advisory-phase {
+        padding: 40px 30px;
+        text-align: center;
+      }
+
+      .phase-icon {
+        width: 90px;
+        height: 90px;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+      }
+
+      .advisory-phase h3 {
+        font-size: 1.9rem;
+        margin-bottom: 15px;
+      }
+
+      .advisory-phase p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .phase-features {
+        margin-top: 20px;
+      }
+
+      .phase-features li {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
       }
 
       .flow-arrow {
         transform: rotate(90deg);
-      }
-
-      .hero-stats {
-        gap: 30px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        margin: 20px auto;
       }
 
       .advisory-focus-areas {
         grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .focus-card {
+        padding: 35px 25px;
+        text-align: center;
+      }
+
+      .focus-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      .focus-card h4 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+      }
+
+      .focus-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .focus-details {
+        margin-top: 20px;
+        padding-top: 20px;
+      }
+
+      .focus-details ul {
+        text-align: left;
+      }
+
+      .focus-details li {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+      }
+
+      .learn-more-btn {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+
+      .advisory-process {
+        margin: 60px 0;
+        padding: 50px 0;
+      }
+
+      .process-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
       }
 
       .process-steps {
         grid-template-columns: 1fr;
+        gap: 30px;
       }
 
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+      .process-step {
+        padding: 30px 25px;
+        text-align: center;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+      }
+
+      .process-step h4 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+
+      .process-step p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .testimonials-section {
+        padding: 60px 0;
       }
 
       .testimonials-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 50px;
       }
 
-      .modal-content {
-        margin: 10% auto;
-        width: 95%;
+      .testimonial-card {
+        padding: 30px 25px;
+        text-align: center;
       }
 
-      .modal-header {
-        padding: 40px 30px 25px;
+      .testimonial-content {
+        margin-bottom: 25px;
       }
 
-      .modal-body {
-        padding: 30px 20px;
+      .testimonial-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .testimonial-content p::before {
+        top: -15px;
+        left: -15px;
+        font-size: 3rem;
       }
 
       .testimonial-author {
         flex-direction: column;
-        text-align: center;
         gap: 15px;
+        align-items: center;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+      }
+
+      .author-info h5 {
+        font-size: 1rem;
+        margin-bottom: 3px;
+      }
+
+      .author-info span {
+        font-size: 0.85rem;
+      }
+
+      .advisory-cta {
+        padding: 50px 0;
+        text-align: center;
+      }
+
+      .advisory-cta h3 {
+        font-size: 1.9rem;
+        margin-bottom: 20px;
+      }
+
+      .advisory-cta p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .advisory-cta .btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 16px 30px;
+        font-size: 1rem;
+      }
+
+      footer {
+        padding: 40px 0 20px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+
+      .footer-col {
+        text-align: center;
+      }
+
+      .footer-col h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .footer-col p,
+      .footer-col a {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .copyright {
+        padding-top: 20px;
+        font-size: 0.9rem;
+      }
+
+      .modal-content {
+        margin: 5% auto;
+        width: 95%;
+        max-height: 90vh;
+      }
+
+      .modal-header {
+        padding: 30px 20px 20px;
+      }
+
+      .modal-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .modal-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .modal-body {
+        padding: 25px 20px;
+      }
+
+      .modal-body > p {
+        font-size: 1rem;
+      }
+
+      .modal-details h3 {
+        font-size: 1.1rem;
+      }
+
+      .modal-details li {
+        font-size: 0.9rem;
+      }
+
+      .modal-cta .btn {
+        padding: 14px 30px;
+        font-size: 0.95rem;
       }
     }
+
+    /* Small Mobile View (max-width: 480px) */
+    @media (max-width: 480px) {
+      .container {
+        width: 98%;
+        padding: 0 5px;
+      }
+
+      .header-container {
+        height: 55px;
+      }
+
+      .brand {
+        margin-left: 5px;
+      }
+
+      .cs-logo {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+      }
+
+      .brand-text {
+        font-size: 1.1rem;
+      }
+
+      .mobile-toggle {
+        margin-right: 5px;
+      }
+
+      .nav-links {
+        top: 55px;
+        padding: 15px;
+      }
+
+      .nav-links a {
+        padding: 10px 0;
+        font-size: 0.95rem;
+      }
+
+      .dropdown-menu {
+        padding: 8px 15px;
+      }
+
+      .dropdown-menu a {
+        padding: 6px 0;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        min-height: 70vh;
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+      }
+
+      .hero-stats {
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .section-header {
+        margin-bottom: 40px;
+      }
+
+      .section-header h2 {
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+      }
+
+      .section-header p {
+        font-size: 0.95rem;
+      }
+
+      .advisory-flow {
+        gap: 40px;
+      }
+
+      .advisory-phase {
+        padding: 30px 20px;
+      }
+
+      .phase-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      .advisory-phase h3 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+      }
+
+      .advisory-phase p {
+        font-size: 0.9rem;
+      }
+
+      .phase-features li {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+      }
+
+      .flow-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      .advisory-focus-areas {
+        gap: 25px;
+        margin-top: 50px;
+      }
+
+      .focus-card {
+        padding: 25px 20px;
+      }
+
+      .focus-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .focus-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+
+      .focus-card p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .focus-details {
+        margin-top: 15px;
+        padding-top: 15px;
+      }
+
+      .focus-details li {
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+      }
+
+      .learn-more-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+
+      .advisory-process {
+        margin: 50px 0;
+        padding: 40px 0;
+      }
+
+      .process-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+
+      .process-steps {
+        gap: 25px;
+      }
+
+      .process-step {
+        padding: 25px 20px;
+      }
+
+      .step-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .process-step h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      .process-step p {
+        font-size: 0.9rem;
+      }
+
+      .testimonials-section {
+        padding: 50px 0;
+      }
+
+      .testimonials-grid {
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .testimonial-card {
+        padding: 25px 20px;
+      }
+
+      .testimonial-content {
+        margin-bottom: 20px;
+      }
+
+      .testimonial-content p {
+        font-size: 0.95rem;
+      }
+
+      .testimonial-content p::before {
+        top: -10px;
+        left: -10px;
+        font-size: 2.5rem;
+      }
+
+      .testimonial-author {
+        gap: 12px;
+      }
+
+      .author-avatar {
+        width: 45px;
   </style>
 </head>
 

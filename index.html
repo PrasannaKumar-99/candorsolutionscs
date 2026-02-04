@@ -224,7 +224,7 @@
     html {
       scroll-behavior: smooth;
     }
-http://127.0.0.1:3000/index.html?serverWindowId=c17e866c-066e-4d90-a347-3c2c5fe7a640#contact
+
     /* =====================================================
        BASE STYLES
     ===================================================== */
@@ -2146,6 +2146,147 @@ http://127.0.0.1:3000/index.html?serverWindowId=c17e866c-066e-4d90-a347-3c2c5fe7
 
 
 
+
+    /* =====================================================
+       ADVISORY FOCUS AREAS RESPONSIVE DESIGN
+    ===================================================== */
+    /* Desktop View (1441px+) */
+    @media (min-width: 1441px) {
+        .advisory-focus-areas {
+            padding: 3rem;
+        }
+        .focus-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 30px;
+        }
+        .focus-item {
+            padding: 40px 30px;
+        }
+        .focus-icon {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+        }
+        .focus-item h4 {
+            font-size: 1.4rem;
+        }
+        .focus-item p {
+            font-size: 1rem;
+        }
+    }
+
+    /* Laptop View (1025px - 1440px) */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        .advisory-focus-areas {
+            padding: 2.5rem;
+        }
+        .focus-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 25px;
+        }
+        .focus-item {
+            padding: 35px 25px;
+        }
+        .focus-icon {
+            width: 75px;
+            height: 75px;
+            font-size: 1.9rem;
+        }
+        .focus-item h4 {
+            font-size: 1.3rem;
+        }
+        .focus-item p {
+            font-size: 0.98rem;
+        }
+    }
+
+    /* Tablet View (769px - 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .advisory-focus-areas {
+            padding: 2rem;
+        }
+        .focus-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .focus-item {
+            padding: 30px 20px;
+        }
+        .focus-icon {
+            width: 70px;
+            height: 70px;
+            font-size: 1.8rem;
+        }
+        .focus-item h4 {
+            font-size: 1.2rem;
+        }
+        .focus-item p {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* Mobile View (max-width: 768px) */
+    @media (max-width: 768px) {
+        .advisory-focus-areas {
+            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+        .focus-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 15px;
+        }
+        .focus-item {
+            padding: 25px 20px;
+        }
+        .focus-icon {
+            width: 65px;
+            height: 65px;
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+        }
+        .focus-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .focus-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    }
+
+    /* Small Mobile View (max-width: 480px) */
+    @media (max-width: 480px) {
+        .advisory-focus-areas {
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+        .focus-grid {
+            gap: 15px;
+            padding: 10px;
+        }
+        .focus-item {
+            padding: 20px 15px;
+            border-radius: 10px;
+        }
+        .focus-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .focus-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.7rem;
+        }
+        .focus-item p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+    }
 
     /* =====================================================
        RESPONSIVE DESIGN

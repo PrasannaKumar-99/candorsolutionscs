@@ -56,7 +56,7 @@
 
         .container {
             width: 90%;
-            /* max-width: 1200px; */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -825,19 +825,254 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+
+        /* Desktop View (1441px+) */
+        @media (min-width: 1441px) {
+            .container {
+                max-width: 1400px;
+                padding: 0 30px;
             }
 
-            .about-image {
-                order: -1;
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.5rem;
+                max-width: 1100px;
+            }
+
+            .section-title h2 {
+                font-size: 3.2rem;
+            }
+
+            .section-title p {
+                font-size: 1.4rem;
+            }
+
+            .about-content,
+            .mission-content,
+            .contact-content {
+                gap: 100px;
+            }
+
+            .about-text h3,
+            .mission-text h3 {
+                font-size: 2.6rem;
+            }
+
+            .about-text p,
+            .mission-text p {
+                font-size: 1.3rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 60px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 60px;
+            }
+
+            .value-card h3 {
+                font-size: 1.8rem;
+            }
+
+            .stats-container {
+                gap: 100px;
+            }
+
+            .stat-number {
+                font-size: 4rem;
+            }
+
+            .contact-text h3 {
+                font-size: 2.4rem;
+            }
+
+            .contact-form {
+                padding: 60px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 60px;
             }
         }
 
+        /* Laptop View (1025px - 1440px) */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .container {
+                max-width: 1100px;
+                padding: 0 25px;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1.4rem;
+                max-width: 950px;
+            }
+
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+
+            .section-title p {
+                font-size: 1.3rem;
+            }
+
+            .about-content,
+            .mission-content,
+            .contact-content {
+                gap: 80px;
+            }
+
+            .about-text h3,
+            .mission-text h3 {
+                font-size: 2.3rem;
+            }
+
+            .about-text p,
+            .mission-text p {
+                font-size: 1.2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 50px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 50px;
+            }
+
+            .value-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .stats-container {
+                gap: 70px;
+            }
+
+            .stat-number {
+                font-size: 3.2rem;
+            }
+
+            .contact-text h3 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 50px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 50px;
+            }
+        }
+
+        /* Tablet View (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 1000px;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 800px;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .section-title p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .mission-content,
+            .contact-content {
+                gap: 60px;
+            }
+
+            .about-text h3,
+            .mission-text h3 {
+                font-size: 2rem;
+            }
+
+            .about-text p,
+            .mission-text p {
+                font-size: 1.1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 40px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 40px;
+            }
+
+            .value-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .stats-container {
+                gap: 50px;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+            }
+
+            .contact-text h3 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 40px;
+            }
+        }
+
+        /* Mobile View (max-width: 768px) */
         @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+
             nav ul {
                 display: none;
                 position: absolute;
@@ -862,62 +1097,102 @@
                 display: none;
             }
 
+            .hero {
+                padding-top: 80px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
             .hero h2 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .stats-container {
-                gap: 30px;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-            }
-
-            .contact-form {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
+                font-size: 1.1rem;
+                max-width: 100%;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                align-items: center;
+                gap: 1.5rem;
             }
 
             .btn {
                 width: 100%;
-                max-width: 250px;
+                max-width: 300px;
+            }
+
+            section {
+                padding: 60px 0;
             }
 
             .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .mission-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image,
+            .mission-image {
+                order: -1;
+            }
+
+            .about-text h3,
+            .mission-text h3 {
                 font-size: 1.8rem;
             }
 
-            .team-grid,
+            .about-text p,
+            .mission-text p {
+                font-size: 1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
+
             .values-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
+
+            .value-card h3 {
+                font-size: 1.2rem;
             }
 
             .stats-container {
                 flex-direction: column;
+                gap: 40px;
                 align-items: center;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .contact-text h3 {
+                font-size: 1.7rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .floating-help {
@@ -926,6 +1201,90 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
+            }
+        }
+
+        /* Small Mobile View (max-width: 480px) */
+        @media (max-width: 480px) {
+            .container {
+                width: 98%;
+                padding: 0 5px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title p {
+                font-size: 0.9rem;
+            }
+
+            .about-text h3,
+            .mission-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .about-text p,
+            .mission-text p {
+                font-size: 0.95rem;
+            }
+
+            .team-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .value-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .stats-container {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .contact-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-form {
+                padding: 25px 15px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 14px 18px;
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+
+            .floating-help {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
             }
         }
 

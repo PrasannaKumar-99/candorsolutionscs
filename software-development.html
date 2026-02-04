@@ -1336,63 +1336,192 @@
       background-attachment: fixed;
     }
 
+    /* Desktop View (1441px+) */
+    @media (min-width: 1441px) {
+        .container {
+            width: 95%;
+            max-width: 1400px;
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+        }
+        .section-header h2 {
+            font-size: 4rem;
+        }
+    }
+
+    /* Laptop View (1025px - 1440px) */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        .container {
+            width: 95%;
+            max-width: 1200px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+        }
+        .section-header h2 {
+            font-size: 3.5rem;
+        }
+    }
+
+    /* Tablet View (769px - 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+            width: 95%;
+            max-width: 1000px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+        }
+        .advisory-flow {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .flow-arrow {
+            transform: rotate(90deg);
+        }
+        .hero-stats {
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .advisory-focus-areas {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        .process-steps {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .testimonials-grid {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+    }
+
+    /* Mobile View (max-width: 768px) */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
+        .mobile-toggle {
+            display: block;
+        }
+        .main-nav {
+            display: none;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+        .advisory-flow {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .flow-arrow {
+            transform: rotate(90deg);
+        }
+        .hero-stats {
+            gap: 30px;
+        }
+        .advisory-focus-areas {
+            grid-template-columns: 1fr;
+        }
+        .process-steps {
+            grid-template-columns: 1fr;
+        }
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+        .modal-content {
+            margin: 10% auto;
+            width: 95%;
+        }
+        .modal-header {
+            padding: 40px 30px 25px;
+        }
+        .modal-body {
+            padding: 30px 20px;
+        }
+        .testimonial-author {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+    }
 
-      .section-header h2 {
-        font-size: 2.5rem;
-      }
-
-      .advisory-flow {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .flow-arrow {
-        transform: rotate(90deg);
-      }
-
-      .hero-stats {
-        gap: 30px;
-      }
-
-      .advisory-focus-areas {
-        grid-template-columns: 1fr;
-      }
-
-      .process-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-content {
-        margin: 10% auto;
-        width: 95%;
-      }
-
-      .modal-header {
-        padding: 40px 30px 25px;
-      }
-
-      .modal-body {
-        padding: 30px 20px;
-      }
-
-      .testimonial-author {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
+    /* Small Mobile View (max-width: 480px) */
+    @media (max-width: 480px) {
+        .container {
+            width: 95%;
+            max-width: 100%;
+            padding: 0 10px;
+        }
+        .hero h1 {
+            font-size: 2rem;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+        }
+        .advisory-phase {
+            padding: 40px 30px;
+        }
+        .phase-icon {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+        }
+        .advisory-phase h3 {
+            font-size: 1.8rem;
+        }
+        .focus-card {
+            padding: 40px 30px;
+        }
+        .focus-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+        }
+        .focus-card h4 {
+            font-size: 1.4rem;
+        }
+        .process-step {
+            padding: 30px 20px;
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+        .testimonial-card {
+            padding: 30px;
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+        .modal-content {
+            margin: 5% auto;
+            width: 98%;
+        }
+        .modal-header {
+            padding: 30px 20px 20px;
+        }
+        .modal-body {
+            padding: 20px;
+        }
     }
   </style>
 </head>
